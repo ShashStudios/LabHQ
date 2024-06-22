@@ -1,3 +1,4 @@
+"use client"
 import { curve, heroBackground, robot } from "../assets";
 import Button from "./Button";
 import Section from "./Section";
@@ -8,9 +9,15 @@ import { useRef } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
 import CompanyLogos from "./CompanyLogos";
+import PlaceholdersAndVanishInput from "./PlaceholdersAndVanishInput"
 
 const Hero = () => {
-  const parallaxRef = useRef(null);
+const parallaxRef = useRef(null);
+const placeholders = ["Enter Email", "Join The Newsletter", "Find your Community"]; // Example placeholders array
+const handleChange = [" "]; // Example placeholders array
+const handleSubmit = ["Placeholder 1", "Placeholder 2", "Placeholder 3"]; // Example placeholders array
+
+
 
   return (
     <Section
@@ -25,7 +32,7 @@ const Hero = () => {
           <h1 className="h1 mb-6">
             Explore the Possibilities of&nbsp;AI&nbsp; with {` `}
             <span className="inline-block relative">
-              Ares Labs{" "}
+              Omega AI{" "}
               <img
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-2"
@@ -36,12 +43,14 @@ const Hero = () => {
             </span>
           </h1>
           <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
-            Unleash the power of AI within Ares Labs. Unlock the future with our cutting-edge AI solutions, 
-            transforming innovation into reality at Ares Labs
+            Unleash the power of AI within Omega AI. Unlock the future with our cutting-edge AI solutions, 
+            transforming innovation into reality at Omega AI
           </p>
-          <Button href="https://github.com/ShashStudios/LabHQ" white>
-            <span className="hidden lg:flex text-lg">Contribute</span>
-          </Button>
+            <PlaceholdersAndVanishInput
+            placeholders={placeholders}
+            onChange={handleChange}
+            onSubmit={handleSubmit}    
+            />
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
           <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">
@@ -100,5 +109,6 @@ const Hero = () => {
     </Section>
   );
 };
+
 
 export default Hero;
